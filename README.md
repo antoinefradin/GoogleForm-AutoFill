@@ -55,7 +55,7 @@ Launch the python script using:
 $ python3 AutoFill.py 
 ````
 
-> ***Note:*** Edit your form's details inside the script.
+> ***Note:*** Edit your form's attributes and values inside the script.
 >
 > You can cancel the loop by using ``Control+Z`` while statement.
 
