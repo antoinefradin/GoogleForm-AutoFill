@@ -44,7 +44,7 @@ def send_forms(url, values):
 
 
 for course in ['DE']:
-    for promo in ['APR24','MAY24']:#,'JUN24','JUL24','AUG24']: # ['DEC23','JAN24','FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24']:
+    for promo in ['JUN24','JUL24','AUG24','SEP24']: # ['DEC23','JAN24','FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24']:
         for cursus in ['Continu - Part-time','Bootcamp - Full-time']: #'Bootcamp - Full-time'
             for project in ['NY News', 'Satisfaction client', 'OPA', 'Job market', 'DST Airlines']:
             #for project in ['Recommendation de films', 'Prévision météo Australie', 'Classification de produits e-commerce Rakuten',
