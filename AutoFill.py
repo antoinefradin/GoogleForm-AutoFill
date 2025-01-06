@@ -20,7 +20,7 @@ def get_values(course,promo,cursus,project):
     values = {
         "entry.23904865" : os.getenv('name'),
         "entry.1480848492" : project,
-        "entry.1770104696" : str(os.getenv('mail')) + "(Beaucoup de disponibilités à partir du 1er Septembre 2024)",
+        "entry.1770104696" : str(os.getenv('mail')) + "   (Beaucoup de disponibilités à partir du 1er Janvier 2025)",
         "entry.1277129807" : promo,
         "entry.1677673843" : course,
         "entry.615985793" : "Oui - Yes",
@@ -46,13 +46,13 @@ def send_forms(url, values):
 
 send_de = True
 send_mlops = True
-send_ds = False
-send_da = False
+send_ds = True
+send_da = True
 
 
 if send_de:
     for course in ['DE']:
-        for promo in ["OCT24","NOV24","DEC24"]: # ['DEC23','JAN24','FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24']:
+        for promo in ["JAN25","FEB25"]: # ['DEC23','JAN24','FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24']:
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']: #'Bootcamp - Full-time'
                 for project in ['NY News', 'Satisfaction client', 'OPA', 'Job market', 'DST Airlines',"Itinéraire de vacances"]:
 
@@ -64,7 +64,7 @@ if send_de:
 
 if send_ds:
     for course in ['DS']:
-        for promo in ["SEP24","OCT24","NOV24","DEC24"]: 
+        for promo in ["JAN25","FEB25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']:
                 for project in ["Système de recommendation de films", "Prévision météo Australie", 'Classification de produits e-commerce Rakuten',
                  'Emission de CO2 par les véhicules', 'Recommendation de plantes', 'Analyse des tirs de joueurs NBA']:
@@ -76,10 +76,10 @@ if send_ds:
 
 if send_mlops:
     for course in ['MLOps']:
-        for promo in ["SEP24","OCT24","NOV24","DEC24"]: 
+        for promo in ["JAN25","FEB25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']:
                 for project in ["Recommendation de films", "Prévision météo Australie", 'Classification de produits e-commerce Rakuten',
-                   'Recommendation de musiques', 'Paris sportif']:
+                   'Recommendation de musiques', 'Paris sportif',"Accidents routiers en France"]:
 
                     final_data = get_values(course,promo,cursus,project)
                     
@@ -89,9 +89,9 @@ if send_mlops:
 
 if send_da:
     for course in ['DA']:
-        for promo in ["SEP24","OCT24","NOV24","DEC24"]: 
+        for promo in ["JAN25","FEB25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']: 
-                for project in ["Data job, Energie, Recommendation de films", "Prédire le succès d\'une campagne de financement participatif", "Mon Petit Gazon"]:
+                for project in ["Data job", "Analyse des tirs de joueurs NBA", "Energie", "Recommendation de films", "Prédire le succès d\'une campagne de financement participatif", "Mon Petit Gazon","Trafic cycliste à Paris"]:
 
                     final_data = get_values(course,promo,cursus,project)
                     
