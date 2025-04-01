@@ -17,17 +17,30 @@ url = os.getenv('url')
 def get_values(course,promo,cursus,project):
     """It returns a dict of different form data to be submitted by send_form method."""
 
-    values = {
-        "entry.23904865" : os.getenv('name'),
-        "entry.1480848492" : project,
-        "entry.1770104696" : str(os.getenv('mail')) + "   (Beaucoup de disponibilités à partir du 1er Avril 2025)",
-        "entry.1277129807" : promo,
-        "entry.1677673843" : course,
-        "entry.615985793" : "Oui - Yes",
-        "entry.1027757300" : cursus,
-        "entry.555479852" : "FR uniquement", #"FR or EN", 
-        #"entry.78623536" : "Non - No",
-    }
+    if project=="Autre":
+        values = {
+            "entry.23904865" : os.getenv('name'),
+            "entry.1480848492" : project,
+            "entry.1770104696" : "Ouvert aux projets customs ou à d'autres propositions",
+            "entry.1277129807" : promo,
+            "entry.1677673843" : course,
+            "entry.615985793" : "Oui - Yes",
+            "entry.1027757300" : cursus,
+            "entry.555479852" : "FR uniquement", #"FR or EN", 
+            #"entry.78623536" : "Non - No",
+        }  
+    else:
+        values = {
+            "entry.23904865" : os.getenv('name'),
+            "entry.1480848492" : project,
+            "entry.1770104696" : "✅ Beaucoup de disponibilités à partir du 1er Avril 2025 -- ✉️ "+str(os.getenv('mail')),
+            "entry.1277129807" : promo,
+            "entry.1677673843" : course,
+            "entry.615985793" : "Oui - Yes",
+            "entry.1027757300" : cursus,
+            "entry.555479852" : "FR uniquement", #"FR or EN", 
+            #"entry.78623536" : "Non - No",
+        }
 
     return values
 
@@ -50,10 +63,16 @@ send_ds = True
 send_da = True
 send_devops = False # New! 
 
+### TO DO ###
+# 
+# 1) Ajouter un comptage des projets déjà effectués 
+#    Ajouter le nb dans la section commentaire 
+#
+
 
 if send_de:
     for course in ['DE']:
-        for promo in ["MAR25","AVR25"]: # ['DEC23','JAN24','FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24']:
+        for promo in ["AVR25"]: # ['DEC23','JAN24','FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24']:
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']: #'Bootcamp - Full-time'
                 for project in ['Satisfaction client', 'Crypto / OPA', 'Job market', 'DST Airlines',"Itinéraire de vacances", "Autre"]:
 
