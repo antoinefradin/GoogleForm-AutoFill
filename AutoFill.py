@@ -8,8 +8,6 @@ from random import randint
 
 load_dotenv()
 
-GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')
-
 # URL to the form you want to fill. formResponse should be used instead of viewform
 url = os.getenv('url')
 
@@ -21,19 +19,19 @@ def get_values(course,promo,cursus,project):
         values = {
             "entry.23904865" : os.getenv('name'),
             "entry.1480848492" : project,
-            "entry.1770104696" : "Ouvert aux projets customs ou à d'autres propositions",
+            "entry.1770104696" : "**Ouvert aux projets customs ou à d'autres propositions**",
             "entry.1277129807" : promo,
             "entry.1677673843" : course,
             "entry.615985793" : "Oui - Yes",
             "entry.1027757300" : cursus,
-            "entry.555479852" : "FR uniquement", #"FR or EN", 
+            "entry.555479852" : "FR or EN", 
             #"entry.78623536" : "Non - No",
         }  
     else:
         values = {
             "entry.23904865" : os.getenv('name'),
             "entry.1480848492" : project,
-            "entry.1770104696" : "✅ Beaucoup de disponibilités à partir du 1er Avril 2025 -- ✉️ "+str(os.getenv('mail')),
+            "entry.1770104696" : "✅ Beaucoup de disponibilités en 2025 -- ✉️ "+str(os.getenv('mail')),
             "entry.1277129807" : promo,
             "entry.1677673843" : course,
             "entry.615985793" : "Oui - Yes",
@@ -61,7 +59,7 @@ send_de = True
 send_mlops = True
 send_ds = True
 send_da = True
-send_devops = False # New! 
+send_devops = True # New! 
 
 ### TO DO ###
 # 
@@ -72,7 +70,7 @@ send_devops = False # New!
 
 if send_de:
     for course in ['DE']:
-        for promo in ["AVR25"]: # ['DEC23','JAN24','FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24']:
+        for promo in ["JUN25","JUL25","AUG25","SEP25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']: #'Bootcamp - Full-time'
                 for project in ['Satisfaction client', 'Crypto / OPA', 'Job market', 'DST Airlines',"Itinéraire de vacances", "Autre"]:
 
@@ -84,10 +82,10 @@ if send_de:
 
 if send_ds:
     for course in ['DS']:
-        for promo in ["MAR25","AVR25"]: 
+        for promo in ["JUN25","JUL25","AUG25","SEP25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']:
                 for project in ["Système de recommendation de films", "Prévision météo Australie", 'Classification de produits e-commerce Rakuten',
-                 'Emission de CO2 par les véhicules', 'Supply Chain - Satisfaction des clients', 'Recommendation de plantes', 'Analyse des tirs de joueurs NBA', "Autre"]:
+                 'Emission de CO2 par les véhicules', 'Supply Chain - Satisfaction des clients', 'Compagnon Immobilier', 'Analyse des tirs de joueurs NBA', "Autre"]:
 
                     final_data = get_values(course,promo,cursus,project)
                     
@@ -96,10 +94,10 @@ if send_ds:
 
 if send_mlops:
     for course in ['MLOps']:
-        for promo in ["MAR25","AVR25"]: 
+        for promo in ["JUN25","JUL25","AUG25","SEP25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']:
                 for project in ["Système de recommendation de films", "Prévision météo Australie", 'Classification de produits e-commerce Rakuten',
-                   'Recommendation de musiques', 'Paris sportif',"Accidents routiers en France"]:
+                   'Recommendation de musiques', 'Paris sportif',"Accidents routiers en France", "Autre"]:
 
                     final_data = get_values(course,promo,cursus,project)
                     
@@ -109,7 +107,7 @@ if send_mlops:
 
 if send_da:
     for course in ['DA']:
-        for promo in ["MAR25","AVR25"]: 
+        for promo in ["JUN25","JUL25","AUG25","SEP25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']: 
                 for project in ["Data job", "Analyse des tirs de joueurs NBA", "Energie", "Recommendation de films", "Prédire le succès d\'une campagne de financement participatif", "Mon Petit Gazon","Trafic cycliste à Paris"]:
 
@@ -120,9 +118,9 @@ if send_da:
 
 if send_devops:
     for course in ['DevOps']:
-        for promo in ["MAR25","AVR25"]: 
+        for promo in ["JUN25","JUL25","AUG25","SEP25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']: 
-                for project in ["Data job", "Analyse des tirs de joueurs NBA", "Energie", "Recommendation de films", "Prédire le succès d\'une campagne de financement participatif", "Mon Petit Gazon","Trafic cycliste à Paris"]:
+                for project in ["Autre"]:
 
                     final_data = get_values(course,promo,cursus,project)
                     
