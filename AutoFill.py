@@ -36,7 +36,7 @@ def get_values(course,promo,cursus,project):
             "entry.1677673843" : course,
             "entry.615985793" : "Oui - Yes",
             "entry.1027757300" : cursus,
-            "entry.555479852" : "FR uniquement", #"FR or EN", 
+            "entry.555479852" : "FR or EN", #"FR or EN", 
             #"entry.78623536" : "Non - No",
         }
 
@@ -55,10 +55,10 @@ def send_forms(url, values):
     return r
 
 
-send_de = True
-send_mlops = True
-send_ds = True
-send_da = True
+send_de = False
+send_mlops = False
+send_ds = False
+send_da = False
 send_devops = True # New! 
 
 ### TO DO ###
@@ -70,7 +70,7 @@ send_devops = True # New!
 
 if send_de:
     for course in ['DE']:
-        for promo in ["JUN25","JUL25","AUG25","SEP25"]: 
+        for promo in ["JUL25","AUG25","SEP25"]: 
             for cursus in ['Continu - Part-time','Bootcamp - Full-time']: #'Bootcamp - Full-time'
                 for project in ['Satisfaction client', 'Crypto / OPA', 'Job market', 'DST Airlines',"Itinéraire de vacances", "Autre"]:
 
